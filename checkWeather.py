@@ -61,7 +61,7 @@ def main():
     if time.time() - last_checked > SEND_INTERVAL:
       last_checked = time.time()
       temp, hum, dew, pres = read_sensor(sensor)
-      currentTime = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+      currentTime = datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
       s = ", "
       weatherJSON = createJSON(sensorID, currentTime, sensorZipCode, sensorLat, sensorLong, temp, hum, dew, pres)
       #weatherList = (sensorID, currentTime, sensorZipCode, sensorLat, sensorLong, temp, hum, dew, pres)
