@@ -13,10 +13,10 @@ sensor = BME280(t_mode=BME280_OSAMPLE_8, p_mode=BME280_OSAMPLE_8, h_mode=BME280_
 credentials = GoogleCredentials.get_application_default()
 project="brandonfreitag-sandbox"
 topic = "weatherdata"
-sensorID = "s-ChatfieldStatePark"
+sensorID = "s-Googleplex"
 sensorZipCode = "80125"
-sensorLat = "39.5297838"
-sensorLong = "-105.05404240000001"
+sensorLat = "37.421655"
+sensorLong = "-122.085637"
 
 def publish_message(project_name, topic_name, data):
 	publisher = pubsub.PublisherClient()	
