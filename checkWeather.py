@@ -7,7 +7,7 @@ from google.cloud import pubsub
 from oauth2client.client import GoogleCredentials
 from Adafruit_BME280 import *
 
-# constants
+# constants - change to fit your project and location
 SEND_INTERVAL = 60 #seconds
 sensor = BME280(t_mode=BME280_OSAMPLE_8, p_mode=BME280_OSAMPLE_8, h_mode=BME280_OSAMPLE_8)
 credentials = GoogleCredentials.get_application_default()
@@ -19,11 +19,9 @@ sensorLat = "39.5297838"
 sensorLong = "-105.05404240000001"
 
 def publish_message(project_name, topic_name, data):
-	pubsubClient = pubsub.Client(
-		project=project_name
-	)	
-	topicObj = pubsubClient.topic(topic_name)
-	topicObj.publish(data)
+	publisher = pubsub.PublisherClient()	
+	topic = 'projects/' + project_name + '/topics/' + topic_name
+	publisher.publish(topic, data, placeholder='')
 	print data
 
 def read_sensor(weathersensor):
@@ -64,9 +62,6 @@ def main():
       currentTime = datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
       s = ", "
       weatherJSON = createJSON(sensorID, currentTime, sensorZipCode, sensorLat, sensorLong, temp, hum, dew, pres)
-      #weatherList = (sensorID, currentTime, sensorZipCode, sensorLat, sensorLong, temp, hum, dew, pres)
-      #message = s.join(weatherList)
-      #weatherData = message.encode("utf-8")
       publish_message(project, topic, weatherJSON)
     time.sleep(0.5)
 
