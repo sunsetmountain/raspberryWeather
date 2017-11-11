@@ -14,7 +14,7 @@ credentials = GoogleCredentials.get_application_default()
 project="brandonfreitag-sandbox"
 topic = "weatherdata"
 sensorID = "s-Googleplex"
-sensorZipCode = "80125"
+sensorZipCode = "94043"
 sensorLat = "37.421655"
 sensorLong = "-122.085637"
 
