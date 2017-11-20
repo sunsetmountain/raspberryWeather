@@ -8,7 +8,7 @@ from oauth2client.client import GoogleCredentials
 from Adafruit_BME280 import *
 
 # constants - change to fit your project and location
-SEND_INTERVAL = 10 #seconds
+SEND_INTERVAL = 60 #seconds
 sensor = BME280(t_mode=BME280_OSAMPLE_8, p_mode=BME280_OSAMPLE_8, h_mode=BME280_OSAMPLE_8)
 credentials = GoogleCredentials.get_application_default()
 project="brandonfreitag-sandbox"
