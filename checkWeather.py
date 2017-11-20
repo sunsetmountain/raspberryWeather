@@ -19,11 +19,14 @@ sensorLat = "37.421655"
 sensorLong = "-122.085637"
 
 def publish_message(project_name, topic_name, data):
+  try:
 	publisher = pubsub.PublisherClient()	
 	topic = 'projects/' + project_name + '/topics/' + topic_name
 	publisher.publish(topic, data, placeholder='')
 	print data
-
+  except:
+	print "There was an error publishing weather data."
+	
 def read_sensor(weathersensor):
     tempF = weathersensor.read_temperature_f()
     # pascals = sensor.read_pressure()
