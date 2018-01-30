@@ -13,7 +13,7 @@ sensor = BME280(t_mode=BME280_OSAMPLE_8, p_mode=BME280_OSAMPLE_8, h_mode=BME280_
 credentials = GoogleCredentials.get_application_default()
 # change project to your Project ID
 project="weatherproject"
-# change topic to your topic name
+# change topic to your PubSub topic name
 topic = "weatherdata"
 # set the following four constants to be indicative of where you are placing your weather sensor
 sensorID = "s-Googleplex"
