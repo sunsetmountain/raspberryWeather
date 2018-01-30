@@ -11,8 +11,11 @@ from Adafruit_BME280 import *
 SEND_INTERVAL = 60 #seconds
 sensor = BME280(t_mode=BME280_OSAMPLE_8, p_mode=BME280_OSAMPLE_8, h_mode=BME280_OSAMPLE_8)
 credentials = GoogleCredentials.get_application_default()
-project="brandonfreitag-sandbox"
+# change project to your Project ID
+project="weatherproject"
+# change topic to your topic name
 topic = "weatherdata"
+# set the following four constants to be indicative of where you are placing your weather sensor
 sensorID = "s-Googleplex"
 sensorZipCode = "94043"
 sensorLat = "37.421655"
