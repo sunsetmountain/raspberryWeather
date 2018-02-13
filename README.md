@@ -28,21 +28,196 @@ In this project, you are going to build Raspberry Pi Internet of Things (IoT) de
 
 The Raspberry Pi Zero W is recommended for this codelab, but a Raspberry Pi 3 Model B will also work, won’t require hammer header pins or a USB hub, has a better CPU, but will cost more. If you choose to move forward with the alternate device, make certain that you have a power supply and an appropriate SD card.
 
-### Installing
+### Assemble the Raspberry Pi and sensor
 
-A step by step series of examples that tell you have to get a development env running
 
-Say what the step will be
+Solder the header pins to the sensor board. 
+
+
+
+
+Carefully install the hammer header pins into the Raspberry Pi.
+
+
+
+Format the SD card and install the NOOBS (New Out Of Box Software) installer by following the steps here. Insert the SD card into the Raspberry Pi and place the Raspberry Pi into its case.
+
+
+
+
+Use the breadboard wires to connect the sensor to the Raspberry Pi according to the diagram below.
+
+
+Raspberry Pi pin
+Sensor connection
+Pin 1 (3.3V)
+VIN
+Pin 3 (CPIO2)
+SDA
+Pin 5 (GPIO3)
+SCL
+Pin 9 (Ground)
+GND
+
+
+
+
+Connect the monitor (using the mini-HDMI connector), keyboard/mouse (with the USB hub) and finally, power adapter. 
+
+### Configure the Raspberry Pi and sensor
+
+After the Raspberry Pi finishes booting up, select Raspbian for the desired operating system, make certain your desired language is correct and then click on Install (hard drive icon on the upper left portion of the window).
+
+
+
+
+
+Click on the Wifi icon (top right of the screen) and select a network. If it is a secured network, enter the password (pre shared key).
+
+
+
+Click on the raspberry icon (top left of the screen), select Preferences and then Raspberry Pi Configuration. From the Interfaces tab, enable SSH and I2C. From the Localisation tab, set the Locale and the Timezone. After setting the Timezone, allow the Raspberry Pi to reboot.
+
+
+
+After the reboot has completed, click on the Terminal icon to open a terminal window. 
+
+
+
+Type in the following command to make certain that the sensor is correctly connected.
+
 
 ```
-Give the example
+  sudo i2cdetect -y 1
 ```
 
-And repeat
+The result should look like this -- make sure it reads 76.
+
+
+
+An all 0 result indicates that the sensor isn’t being read by the Raspberry Pi -- check the wiring and connections. 
+
+A result other than 76 could indicate that the type of sensor doesn’t match the one recommended by this codelab and this will cause the sensor driver to not function correctly. To fix this situation, you’ll need to edit the Adafruit_BME280.py script that is downloaded in the “Install the sensor software and weather script” section below. For example, if the result is showing 74, you will need to change the BME280_I2CADDR to 0x74.
+
+### Install the Google Cloud SDK
+
+In order to leverage the tools on the Google Cloud platform, the Google Cloud SDK will need to be installed on the Raspberry Pi. The SDK includes the tools needed to manage and leverage the Google Cloud Platform and is available for several programming languages. In this Codelab, only a small portion of the SDK will be used (publishing messages to a queue using Google Cloud Pub/Sub).
+
+
+Learn more about the Google Cloud SDK
+
+
+Open a terminal window on the Raspberry Pi if one isn’t already open and set an environment variable that will match the SDK version to the operating system on the Raspberry Pi.
 
 ```
-until finished
+  export CLOUD_SDK_REPO=”cloud-sdk-$(lsb_release -c -s)”
 ```
+
+Now add the location of where the Google Cloud SDK packages are stored so that the installation tools will know where to look when asked to install the SDK.
+
+```
+  echo “deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main” |  sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+```
+
+Add the public key from Google’s package repository so that the Raspberry Pi will verify the security and trust the content during installation
+
+```
+  curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+```
+
+Make sure that all the software on the Raspberry Pi is up to date
+
+```
+  sudo apt-get update
+```
+
+Install the Google Cloud SDK using the Python package manager
+
+```
+  pip install --upgrade google-cloud
+```
+
+The installation speed of the SDK is dependent both on the network speed and the Raspberry Pi processor. The Raspberry Pi Zero W can take around 30 minutes to complete the install. If you are using the alternate hardware (Raspberry Pi 3 Model B), install times are typically much faster.
+
+
+### Install the sensor software and weather script
+
+
+From the command line on the Raspberry Pi, clone the needed packages for reading information from the input/output pins.
+
+```
+  git clone https://github.com/adafruit/Adafruit_Python_GPIO
+```
+
+Install the downloaded packages
+
+```
+  cd Adafruit_Python_GPIO
+
+  sudo python setup.py install
+
+  cd ..
+```
+
+Clone the project code that enables the weather sensor
+
+```
+  git clone https://github.com/sunsetmountain/raspberryWeather
+```
+
+Edit the script by typing…
+
+```
+  cd raspberryWeather
+
+  nano checkWeather.py
+```
+
+Change the project to your Project ID and the topic to the name of your Pub/Sub topic (these were noted in the Getting Set-up and Create a Pub/Sub topic sections of this codelab). 
+
+Change the sensorID, sensorZipCode, sensorLat and sensorLong values to whatever value you’d like. Latitude and Longitude values for a specific location or address can be found here.
+
+When you’ve completed making the necessary changes, press Ctrl-X to begin to exit the nano editor. Press Y to confirm.
+
+# constants - change to fit your project and location
+SEND_INTERVAL = 10 #seconds
+sensor = BME280(t_mode=BME280_OSAMPLE_8, p_mode=BME280_OSAMPLE_8, h_mode=BME280_OSAMPLE_8)
+credentials = GoogleCredentials.get_application_default()
+project="myProject" #change this to your Google Cloud project id
+topic = "myTopic" #change this to your Google Cloud PubSub topic name
+sensorID = "s-Googleplex"
+sensorZipCode = "94043"
+sensorLat = "37.421655"
+sensorLong = "-122.085637"
+
+
+Install the security key
+
+Copy the security key (from the “Secure publishing to a topic” section) to the Raspberry Pi.
+
+If you placed the security key into a storage bucket, use the link that you copied to download the file (i.e. change the bucket name and file name in the command below).
+
+  wget https://storage.googleapis.com/yourStorageBucketName/yourSecurityKeyFilename.json
+
+
+Since the security key stored in the storage bucket is publicly accessible, now would be a good time to go back into the Cloud Console and to turn off public sharing for this file.
+
+
+If you instead have the security key downloaded on your local machine, use a method such as SFTP (secure file transfer protocol) to copy the file to the Raspberry Pi.
+
+
+The default username for the Raspberry Pi should be “pi” and the password should be “raspberry”.
+
+
+From the command line on the Raspberry Pi, export a path to the security key (change the filename to match what you have)
+
+  export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/yourSecurityKeyFilename.json
+
+
+If you plan to utilize the Raspberry Pi extensively for weather measurement, placing the export statement into the .profile file to allow it to persist between reboots is advisable. The .profile file is in the /home/pi directory and can be edited using any available editor (e.g. vi or nano).
+
+You now have a completed IoT weather sensor that is ready to transmit data to Google Cloud.
+
 
 End with an example of getting some data out of the system or using it for a little demo
 
