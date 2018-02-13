@@ -4,7 +4,7 @@ One Paragraph of project description goes here
 
 ## Getting Started
 
-In this project, you are going to build Raspberry Pi Internet of Things (IoT) device with a weather sensor that can publish data to the Google Cloud Platform (Cloud Pub/Sub). This can also be extended into building out an entire data and analytics pipeline by following the "Building a Serverless Data Pipeline: IoT to Analytics" [codelab] (https://codelabs.developers.google.com/)
+In this project, you are going to build Raspberry Pi Internet of Things (IoT) device with a weather sensor that can publish data to the Google Cloud Platform (Cloud Pub/Sub). This can also be extended into building out an entire data and analytics pipeline by following the "Building a Serverless Data Pipeline: IoT to Analytics" [codelab](https://codelabs.developers.google.com/)
 
 ### Prerequisites
 
