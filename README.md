@@ -8,8 +8,6 @@ In this project, you are going to build Raspberry Pi Internet of Things (IoT) de
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
 * A Google Cloud Platform account. New users of Google Cloud Platform are eligible for a [$300 free trial](https://console.developers.google.com/billing/freetrial?hl=en)
 
 * [Raspberry Pi Zero W starter kit](https://www.canakit.com/raspberry-pi-zero-wireless.html) - $34.95
@@ -28,10 +26,7 @@ What things you need to install the software and how to install them
 
 * Computer monitor or TV with HDMI input, HDMI cable, keyboard and a mouse
 
-
-```
-Give examples
-```
+The Raspberry Pi Zero W is recommended for this codelab, but a Raspberry Pi 3 Model B will also work, won’t require hammer header pins or a USB hub, has a better CPU, but will cost more. If you choose to move forward with the alternate device, make certain that you have a power supply and an appropriate SD card.
 
 ### Installing
 
