@@ -1,10 +1,8 @@
 # raspberryWeather
 
-One Paragraph of project description goes here
+You will build an IoT device (Raspberry Pi) that measures weather data. In conjunction with the steps included in a [Google Codelab](https://codelabs.developers.google.com/) ("Building a Serverless Data Pipeline: IoT to Analytics"), the weather data can be published to a data pipeline that includes a message queue, serverless function, a Cloud-based data warehouse and an analytics dashboard using Google’s Cloud Platform.
 
 ## Getting Started
-
-In this project, you are going to build Raspberry Pi Internet of Things (IoT) device with a weather sensor that can publish data to the Google Cloud Platform (Cloud Pub/Sub). This can also be extended into building out an entire data and analytics pipeline by following the [codelab](https://codelabs.developers.google.com/) on "Building a Serverless Data Pipeline: IoT to Analytics"
 
 ### Prerequisites
 
