@@ -31,31 +31,25 @@ The Raspberry Pi Zero W is recommended for this codelab, but a Raspberry Pi 3 Mo
 
 Solder the header pins to the sensor board. 
 
-
-
+![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
 
 Carefully install the hammer header pins into the Raspberry Pi.
 
+![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
 
+Format the SD card and install the NOOBS (New Out Of Box Software) installer by following the [steps] here(https://www.raspberrypi.org/documentation/installation/noobs.md). Insert the SD card into the Raspberry Pi and place the Raspberry Pi into its case.
 
-Format the SD card and install the NOOBS (New Out Of Box Software) installer by following the steps here. Insert the SD card into the Raspberry Pi and place the Raspberry Pi into its case.
-
-
-
+![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
 
 Use the breadboard wires to connect the sensor to the Raspberry Pi according to the diagram below.
 
+![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
 
-Raspberry Pi pin
-Sensor connection
-Pin 1 (3.3V)
-VIN
-Pin 3 (CPIO2)
-SDA
-Pin 5 (GPIO3)
-SCL
-Pin 9 (Ground)
-GND
+Raspberry Pi pin -> Sensor connection
+Pin 1 (3.3V) -> VIN
+Pin 3 (CPIO2) -> SDA
+Pin 5 (GPIO3) -> SCL
+Pin 9 (Ground) -> GND
 
 
 
@@ -66,21 +60,19 @@ Connect the monitor (using the mini-HDMI connector), keyboard/mouse (with the US
 
 After the Raspberry Pi finishes booting up, select Raspbian for the desired operating system, make certain your desired language is correct and then click on Install (hard drive icon on the upper left portion of the window).
 
-
-
-
+![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
 
 Click on the Wifi icon (top right of the screen) and select a network. If it is a secured network, enter the password (pre shared key).
 
-
+![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
 
 Click on the raspberry icon (top left of the screen), select Preferences and then Raspberry Pi Configuration. From the Interfaces tab, enable SSH and I2C. From the Localisation tab, set the Locale and the Timezone. After setting the Timezone, allow the Raspberry Pi to reboot.
 
-
+![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
 
 After the reboot has completed, click on the Terminal icon to open a terminal window. 
 
-
+![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
 
 Type in the following command to make certain that the sensor is correctly connected.
 
@@ -91,7 +83,7 @@ Type in the following command to make certain that the sensor is correctly conne
 
 The result should look like this -- make sure it reads 76.
 
-
+![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
 
 An all 0 result indicates that the sensor isn’t being read by the Raspberry Pi -- check the wiring and connections. 
 
