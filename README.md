@@ -179,6 +179,7 @@ Change the sensorID, sensorZipCode, sensorLat and sensorLong values to whatever 
 
 When you’ve completed making the necessary changes, press Ctrl-X to begin to exit the nano editor. Press Y to confirm.
 
+```
 # constants - change to fit your project and location
 SEND_INTERVAL = 10 #seconds
 sensor = BME280(t_mode=BME280_OSAMPLE_8, p_mode=BME280_OSAMPLE_8, h_mode=BME280_OSAMPLE_8)
@@ -189,7 +190,7 @@ sensorID = "s-Googleplex"
 sensorZipCode = "94043"
 sensorLat = "37.421655"
 sensorLong = "-122.085637"
-
+```
 
 Install the security key
 
@@ -197,8 +198,9 @@ Copy the security key (from the “Secure publishing to a topic” section) to t
 
 If you placed the security key into a storage bucket, use the link that you copied to download the file (i.e. change the bucket name and file name in the command below).
 
+```
   wget https://storage.googleapis.com/yourStorageBucketName/yourSecurityKeyFilename.json
-
+```
 
 Since the security key stored in the storage bucket is publicly accessible, now would be a good time to go back into the Cloud Console and to turn off public sharing for this file.
 
@@ -211,8 +213,9 @@ The default username for the Raspberry Pi should be “pi” and the password sh
 
 From the command line on the Raspberry Pi, export a path to the security key (change the filename to match what you have)
 
+```
   export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/yourSecurityKeyFilename.json
-
+```
 
 If you plan to utilize the Raspberry Pi extensively for weather measurement, placing the export statement into the .profile file to allow it to persist between reboots is advisable. The .profile file is in the /home/pi directory and can be edited using any available editor (e.g. vi or nano).
 
