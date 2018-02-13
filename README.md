@@ -4,11 +4,22 @@ One Paragraph of project description goes here
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+In this project, you are going to build Raspberry Pi Internet of Things (IoT) device with a weather sensor that can publish data to the Google Cloud Platform (Cloud Pub/Sub). This can also be extended into building out an entire data and analytics pipeline by following the "Building a Serverless Data Pipeline: IoT to Analytics" [codelab] (https://codelabs.developers.google.com/)
 
 ### Prerequisites
 
 What things you need to install the software and how to install them
+
+A Google Cloud Platform account. New users of Google Cloud Platform are eligible for a [$300 free trial](https://console.developers.google.com/billing/freetrial?hl=en).
+[Raspberry Pi Zero W starter kit](https://www.canakit.com/raspberry-pi-zero-wireless.html) - $34.95
+[USB card reader](https://www.amazon.com/Anker-Portable-Reader-RS-MMC-Micro/dp/B006T9B6R2) - $9.99
+[USB hub](https://www.walmart.com/ip/Anker-Ultra-Slim-4-Port-USB-3-0-Data-Hub/178554397) (to allow for connecting a keyboard and mouse into the sole USB port on the Raspberry Pi) - $9.99
+[Female-to-female breadboard wires](https://www.adafruit.com/product/266) - $3.95
+[GPIO Hammer Headers](https://www.adafruit.com/product/3413) - $6.50
+[BME280 sensor](https://www.amazon.com/gp/product/B0118XCKTG/) - $9.99
+[Soldering iron](https://www.amazon.com/gp/product/B074V28ZVS/) (any will do, but this one is nice and includes solder) - $32.99
+Computer monitor or TV with HDMI input, HDMI cable, keyboard and a mouse
+
 
 ```
 Give examples
