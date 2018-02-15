@@ -36,11 +36,11 @@ Carefully install the hammer header pins into the Raspberry Pi.
 
 Format the SD card and install the NOOBS (New Out Of Box Software) installer by following the [steps] here(https://www.raspberrypi.org/documentation/installation/noobs.md). Insert the SD card into the Raspberry Pi and place the Raspberry Pi into its case.
 
-![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
+![alt text](screenshots/case.png "Place the Raspberry Pi into its case")
 
 Use the breadboard wires to connect the sensor to the Raspberry Pi according to the diagram below.
 
-![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
+![alt text](screenshots/wiring.png "Connect the sensor to the Raspberry Pi")
 
 Raspberry Pi pin -> Sensor connection
 Pin 1 (3.3V) -> VIN
@@ -48,8 +48,7 @@ Pin 3 (CPIO2) -> SDA
 Pin 5 (GPIO3) -> SCL
 Pin 9 (Ground) -> GND
 
-
-
+![alt text](screenshots/assembly.png "Completed assembly")
 
 Connect the monitor (using the mini-HDMI connector), keyboard/mouse (with the USB hub) and finally, power adapter. 
 
@@ -57,19 +56,19 @@ Connect the monitor (using the mini-HDMI connector), keyboard/mouse (with the US
 
 After the Raspberry Pi finishes booting up, select Raspbian for the desired operating system, make certain your desired language is correct and then click on Install (hard drive icon on the upper left portion of the window).
 
-![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
+![alt text](screenshots/raspbian.png "Install Raspbian")
 
 Click on the Wifi icon (top right of the screen) and select a network. If it is a secured network, enter the password (pre shared key).
 
-![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
+![alt text](screenshots/wifi.png "Select your wifi network and enter the password")
 
 Click on the raspberry icon (top left of the screen), select Preferences and then Raspberry Pi Configuration. From the Interfaces tab, enable SSH and I2C. From the Localisation tab, set the Locale and the Timezone. After setting the Timezone, allow the Raspberry Pi to reboot.
 
-![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
+![alt text](screenshots/settings.png "Set the preferences")
 
 After the reboot has completed, click on the Terminal icon to open a terminal window. 
 
-![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
+![alt text](screenshots/terminal.png "Open a terminal window")
 
 Type in the following command to make certain that the sensor is correctly connected.
 
@@ -80,7 +79,7 @@ Type in the following command to make certain that the sensor is correctly conne
 
 The result should look like this -- make sure it reads 76.
 
-![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
+![alt text](screenshots/detect.png "Check the sensor connection")
 
 An all 0 result indicates that the sensor isn’t being read by the Raspberry Pi -- check the wiring and connections. 
 
@@ -152,88 +151,7 @@ Clone the project code that enables the weather sensor
   git clone https://github.com/sunsetmountain/raspberryWeather
 ```
 
-Edit the script by typing…
-
-```
-  cd raspberryWeather
-
-  nano checkWeather.py
-```
-
-Change the project to your Project ID and the topic to the name of your Pub/Sub topic (these were noted in the Getting Set-up and Create a Pub/Sub topic sections of this codelab). 
-
-Change the sensorID, sensorZipCode, sensorLat and sensorLong values to whatever value you’d like. Latitude and Longitude values for a specific location or address can be found here.
-
-When you’ve completed making the necessary changes, press Ctrl-X to begin to exit the nano editor. Press Y to confirm.
-
-```
-# constants - change to fit your project and location
-SEND_INTERVAL = 10 #seconds
-sensor = BME280(t_mode=BME280_OSAMPLE_8, p_mode=BME280_OSAMPLE_8, h_mode=BME280_OSAMPLE_8)
-credentials = GoogleCredentials.get_application_default()
-project="myProject" #change this to your Google Cloud project id
-topic = "myTopic" #change this to your Google Cloud PubSub topic name
-sensorID = "s-Googleplex"
-sensorZipCode = "94043"
-sensorLat = "37.421655"
-sensorLong = "-122.085637"
-```
-
-Install the security key
-
-Copy the security key (from the “Secure publishing to a topic” section) to the Raspberry Pi.
-
-If you placed the security key into a storage bucket, use the link that you copied to download the file (i.e. change the bucket name and file name in the command below).
-
-```
-  wget https://storage.googleapis.com/yourStorageBucketName/yourSecurityKeyFilename.json
-```
-
-Since the security key stored in the storage bucket is publicly accessible, now would be a good time to go back into the Cloud Console and to turn off public sharing for this file.
-
-
-If you instead have the security key downloaded on your local machine, use a method such as SFTP (secure file transfer protocol) to copy the file to the Raspberry Pi.
-
-
-The default username for the Raspberry Pi should be “pi” and the password should be “raspberry”.
-
-
-From the command line on the Raspberry Pi, export a path to the security key (change the filename to match what you have)
-
-```
-  export GOOGLE_APPLICATION_CREDENTIALS=/home/pi/yourSecurityKeyFilename.json
-```
-
-If you plan to utilize the Raspberry Pi extensively for weather measurement, placing the export statement into the .profile file to allow it to persist between reboots is advisable. The .profile file is in the /home/pi directory and can be edited using any available editor (e.g. vi or nano).
-
-You now have a completed IoT weather sensor that is ready to transmit data to Google Cloud.
-
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+To connect the sensor to the Google Cloud Platform, follow the instructions in the [Google Codelab](https://codelabs.developers.google.com/) ("Building a Serverless Data Pipeline: IoT to Analytics").
 
 ## Contributing
 
@@ -242,9 +160,3 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 ## License
 
 This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
