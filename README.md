@@ -28,21 +28,15 @@ The Raspberry Pi Zero W is recommended for this codelab, but a Raspberry Pi 3 Mo
 
 Solder the header pins to the sensor board. 
 
-
 ![alt text](screenshots/pins.png "Solder the header pins to the sensor board")
-
 
 Carefully install the hammer header pins into the Raspberry Pi.
 
-
 ![alt text](screenshots/headerpins.png "Carefully install the hammer header pins")
-
 
 Format the SD card and install the NOOBS (New Out Of Box Software) installer by following the [steps] here(https://www.raspberrypi.org/documentation/installation/noobs.md). Insert the SD card into the Raspberry Pi and place the Raspberry Pi into its case.
 
-
 ![alt text](screenshots/case.png "Place the Raspberry Pi into its case")
-
 
 Use the breadboard wires to connect the sensor to the Raspberry Pi according to the diagram below.
 
@@ -78,7 +72,6 @@ After the reboot has completed, click on the Terminal icon to open a terminal wi
 
 Type in the following command to make certain that the sensor is correctly connected.
 
-
 ```
   sudo i2cdetect -y 1
 ```
@@ -93,11 +86,7 @@ A result other than 76 could indicate that the type of sensor doesn’t match th
 
 ### Install the Google Cloud SDK
 
-In order to leverage the tools on the Google Cloud platform, the Google Cloud SDK will need to be installed on the Raspberry Pi. The SDK includes the tools needed to manage and leverage the Google Cloud Platform and is available for several programming languages. In this Codelab, only a small portion of the SDK will be used (publishing messages to a queue using Google Cloud Pub/Sub).
-
-
-Learn more about the Google Cloud SDK
-
+In order to leverage the tools on the Google Cloud platform, the Google Cloud SDK will need to be installed on the Raspberry Pi. The SDK includes the tools needed to manage and leverage the Google Cloud Platform and is available for several programming languages.
 
 Open a terminal window on the Raspberry Pi if one isn’t already open and set an environment variable that will match the SDK version to the operating system on the Raspberry Pi.
 
