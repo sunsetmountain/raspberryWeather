@@ -1,12 +1,10 @@
 # raspberryWeather
 
-You will build an IoT device (Raspberry Pi) that measures weather data and is ready to interact with the Google Cloud Platform. In conjunction with the steps included in a [Google Codelab](https://codelabs.developers.google.com/) ("Building a Serverless Data Pipeline: IoT to Analytics"), the weather data can be published to a data pipeline that includes a message queue, serverless function, a Cloud-based data warehouse and an analytics dashboard using Google’s Cloud Platform.
+You will build an IoT device (Raspberry Pi) that measures weather data and is ready to interact with the Google Cloud Platform. In conjunction with the steps included in a [Google Codelab](https://codelabs.developers.google.com/) ("Building a Serverless Data Pipeline: IoT to Analytics"), the weather data can be published to a data pipeline that includes a message queue, a serverless function, a Cloud-based data warehouse and an analytics dashboard using Google’s Cloud Platform.
 
 ## Getting Started
 
 ### Prerequisites
-
-* A Google Cloud Platform account. New users of Google Cloud Platform are eligible for a [$300 free trial](https://console.developers.google.com/billing/freetrial?hl=en)
 
 * [Raspberry Pi Zero W starter kit](https://www.canakit.com/raspberry-pi-zero-wireless.html) - $34.95
 
@@ -28,14 +26,13 @@ The Raspberry Pi Zero W is recommended for this codelab, but a Raspberry Pi 3 Mo
 
 ### Assemble the Raspberry Pi and sensor
 
-
 Solder the header pins to the sensor board. 
 
-![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
+![alt text](screenshots/pins.png "Solder the header pins to the sensor board")
 
 Carefully install the hammer header pins into the Raspberry Pi.
 
-![alt text](screenshots/wifi_selector.png "Select your wifi network and enter the password")
+![alt text](screenshots/headerpins.png "Carefully install the hammer header pins")
 
 Format the SD card and install the NOOBS (New Out Of Box Software) installer by following the [steps] here(https://www.raspberrypi.org/documentation/installation/noobs.md). Insert the SD card into the Raspberry Pi and place the Raspberry Pi into its case.
 
