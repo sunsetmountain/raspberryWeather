@@ -146,6 +146,14 @@ Clone the project code that enables the weather sensor
   git clone https://github.com/sunsetmountain/raspberryWeather
 ```
 
+Copy the sensor driver into the same directory as the remainder of the downloaded software.
+
+```
+cd third_party
+mv Adafruit_BME280.py ..
+cd ..
+```
+
 To connect the sensor to the Google Cloud Platform, follow the instructions in the [Google Codelab](https://codelabs.developers.google.com/) ("Building a Serverless Data Pipeline: IoT to Analytics").
 
 ## Contributing
