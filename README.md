@@ -28,15 +28,21 @@ The Raspberry Pi Zero W is recommended for this codelab, but a Raspberry Pi 3 Mo
 
 Solder the header pins to the sensor board. 
 
+
 ![alt text](screenshots/pins.png "Solder the header pins to the sensor board")
+
 
 Carefully install the hammer header pins into the Raspberry Pi.
 
+
 ![alt text](screenshots/headerpins.png "Carefully install the hammer header pins")
+
 
 Format the SD card and install the NOOBS (New Out Of Box Software) installer by following the [steps] here(https://www.raspberrypi.org/documentation/installation/noobs.md). Insert the SD card into the Raspberry Pi and place the Raspberry Pi into its case.
 
+
 ![alt text](screenshots/case.png "Place the Raspberry Pi into its case")
+
 
 Use the breadboard wires to connect the sensor to the Raspberry Pi according to the diagram below.
 
